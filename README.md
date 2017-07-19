@@ -12,7 +12,7 @@ import (
         "github.com/ntt-nflex/goflexer"
 )
 
-// Test is a Test handler
+// Test is a test handler
 func Test(context goflexer.Context, event goflexer.Event) goflexer.Result {
         fmt.Println("This is a log message")
         return map[string]interface{}{
@@ -24,6 +24,7 @@ func Test(context goflexer.Context, event goflexer.Event) goflexer.Result {
 ## Build
 You must create a `main.go` file with you code. Then build it as a Go plugin and zip it.
 ```sh
+$ go get "github.com/ntt-nflex/goflexer"
 $ go build -buildmode=plugin main.go
 $ zip module.zip main.so
 ```
