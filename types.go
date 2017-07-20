@@ -1,14 +1,11 @@
 package goflexer
 
-type Context struct {
-	Credentials interface{}
-	Secrets     map[string]interface{}
-}
-
+// Event holds the flexer event data
 type Event struct {
 	params map[string]interface{}
 }
 
+// Result holds the flexer result
 type Result interface{}
 
 func (e *Event) Get(key string) interface{} {
