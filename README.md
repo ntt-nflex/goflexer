@@ -1,5 +1,7 @@
 # goflexer
 
+![Go Flexer logo](docs/static_files/gopher_flexer.png "Go Flexer")
+
 Goflexer is a package used for writing nFlex modules as [GoLang plugins](https://golang.org/pkg/plugin/)
 
 ## Example
