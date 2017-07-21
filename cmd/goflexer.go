@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"plugin"
 	"reflect"
@@ -10,16 +11,17 @@ import (
 )
 
 func main() {
-	var handler, module string
+	var handler, module, testEvent string
 	flag.StringVar(&handler, "handler", "Test", "Handler method to run")
 	flag.StringVar(&module, "module", "plugin.so", "Plugin module to load")
+	flag.StringVar(&testEvent, "event", "{}", "Test event (json string)")
 	flag.Parse()
 
 	conf := goflexer.NewConfigFromYAML()
 	log.Infof("Loaded config: %+v", conf)
 
 	context := goflexer.NewContext(conf)
-	event := goflexer.Event{}
+	event := goflexer.NewEvent(json.RawMessage(testEvent))
 
 	log.Infof("Importing go plugin module \"%s\"", module)
 	p, err := plugin.Open(module)
@@ -33,13 +35,13 @@ func main() {
 	}
 
 	// Ensure the handler is a func with correct interface
-	f, ok := s.(func(goflexer.Context, goflexer.Event) goflexer.Result)
+	f, ok := s.(func(goflexer.Event, *goflexer.Context) goflexer.Result)
 	if !ok {
 		log.Fatalf("Incorrect method definition: %s %s", handler, reflect.TypeOf(s))
 	}
 
 	// Run it
-	flexResult := f(context, event)
+	flexResult := f(event, context)
 
 	log.Infof("Module Execution Completed: %+v", flexResult)
 }

@@ -24,11 +24,27 @@ func Test(context goflexer.Context, event goflexer.Event) goflexer.Result {
 ```
 
 ## Build
-You must create a `main.go` file with you code. Then build it as a Go plugin and zip it.
+You must create a `plugin.go` file with you code. Then build it as a Go plugin and zip it.
 ```sh
 $ go get "github.com/ntt-nflex/goflexer"
-$ go build -buildmode=plugin main.go
-$ zip module.zip main.so
+$ go build -buildmode=plugin plugin.go
+$ zip module.zip plugin.so
+```
+
+## Test
+Create a ~/.flexer.yaml file if you don't already have one
+
+```json
+regions:
+  default:
+    cmp_api_key: *****
+    cmp_api_secret: ***********
+    cmp_url: https://localhost/cmp/basic/api
+verify_ssl: false
+```
+
+```sh
+goflexer --handler TestMethod --event '{"foo": "bar"}'
 ```
 
 ## Upload
