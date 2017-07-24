@@ -15,7 +15,7 @@ import (
 )
 
 // Test is a test handler
-func Test(context goflexer.Context, event goflexer.Event) goflexer.Result {
+func Test(event goflexer.Event, context goflexer.Context) goflexer.Result {
         fmt.Println("This is a log message")
         return map[string]interface{}{
                 "foo": "bar",
