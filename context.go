@@ -5,7 +5,7 @@ type Context struct {
 	ModuleID    string
 	Config      *Config
 	Credentials interface{}
-	Secrets     map[string]interface{}
+	Secrets     map[string]string
 	API         *CmpClient
 	//State       *State
 }
