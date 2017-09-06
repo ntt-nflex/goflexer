@@ -55,5 +55,5 @@ func (c *Context) Database(name string) (*mgo.Database, error) {
 		return nil, err
 	}
 
-	return s.DB(key), nil
+	return s.DB(""), nil
 }
