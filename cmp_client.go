@@ -3,7 +3,7 @@ package goflexer
 import (
 	"crypto/tls"
 
-	log "github.com/Sirupsen/logrus"
+	log "github.com/sirupsen/logrus"
 	"github.com/go-resty/resty"
 )
 

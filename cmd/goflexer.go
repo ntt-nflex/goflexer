@@ -6,8 +6,8 @@ import (
 	"plugin"
 	"reflect"
 
-	log "github.com/Sirupsen/logrus"
 	"github.com/ntt-nflex/goflexer"
+	log "github.com/sirupsen/logrus"
 )
 
 func main() {
