@@ -15,7 +15,7 @@ import (
 
 // Database creates and returns a MongoDB database client
 func (c *Context) Database(name string) (*mgo.Database, error) {
-	key := fmt.Sprintf("_nflexdb_%s", name)
+	key := fmt.Sprintf("%s%s", c.Config.DBKeyPrefix, name)
 	connstring, ok := c.Secrets[key]
 	if !ok {
 		return nil, fmt.Errorf("database secret not found")

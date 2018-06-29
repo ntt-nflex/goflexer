@@ -12,9 +12,13 @@ type Config struct {
 	URL         string `envconfig:"cmp_url" yaml:"cmp_url"`
 	Username    string `envconfig:"cmp_username" yaml:"cpi_api_user"`
 	Password    string `envconfig:"cmp_password" yaml:"cmp_api_key"`
+	Platform    string `envconfig:"cmp_platform"`
+	Region      string `envconfig:"cmp_region"`
 	AccessToken string `envconfig:"cmp_access_token"`
 	CodeDir     string `envconfig:"nflex_codedir"`
+	Version     string `envconfig:"flexer_version"`
 	ModuleID    string `envconfig:"nflex_module_id"`
+	DBKeyPrefix string `envconfig:"-" default:"_nflexdb_"`
 	VerifySSL   bool   `envconfig:"verify_ssl" default:"true"`
 }
 

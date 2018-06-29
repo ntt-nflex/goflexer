@@ -2,6 +2,8 @@ package goflexer
 
 // Context holds the flexer context
 type Context struct {
+	CustomerID  string
+	UserID      string
 	ModuleID    string
 	Config      *Config
 	Credentials interface{}
