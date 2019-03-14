@@ -4,7 +4,7 @@ import (
 	"crypto/tls"
 
 	log "github.com/sirupsen/logrus"
-	"github.com/go-resty/resty"
+	"gopkg.in/resty.v1"
 )
 
 // CmpClient type provides an interface to the CMP APIs
