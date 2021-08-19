@@ -26,7 +26,7 @@ func NewCmpClient(conf *Config) *CmpClient {
 	c.client.SetHostURL(conf.URL)
 
 	if conf.AccessToken != "" {
-		c.client.SetHeader("Cookie", conf.AccessToken)
+		c.client.SetHeader("Authorization", "Bearer "+conf.AccessToken)
 	}
 	if conf.Username != "" && conf.Password != "" {
 		c.client.SetBasicAuth(conf.Username, conf.Password)
